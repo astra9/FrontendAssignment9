@@ -1,0 +1,18 @@
+<div>
+    <h1>This is the home page</h1>
+    <ul>
+        <li><a routerLink="/categories" routerLinkActive="active">Categories Page</a></li>
+        <li><a routerLink="/items" routerLinkActive="active">Items Page</a></li>
+    </ul>
+</div>
+<div>
+    <table>
+        <tr *ngFor="let category of categories">
+          <td>{{category.id}}</td>
+          <td>{{category.short_name}}</td>
+          <td>{{category.spacial_instructions}}</td>
+          <td>{{category.name}}</td>
+          <td>{{category.url}}</td>
+        </tr>
+      </table>
+</div>
