@@ -8,14 +8,14 @@
     
     <table>
         <th>Id</th>
+        <th>Category Name</th>
         <th>Category Short Name</th>
         <th>Category Special Instructions</th>
-        <th>Category Name</th>
         <tr *ngFor="let category of categories" [routerLink]="['/items', category.short_name]">
           <td><a [routerLink]="['/items', category.short_name]">{{category.id}}</a></td>
+          <td><a [routerLink]="['/items', category.short_name]">{{category.name}}</a></td>
           <td><a [routerLink]="['/items', category.short_name]">{{category.short_name}}</a></td>
           <td><a [routerLink]="['/items', category.short_name]">{{category.special_instructions}}</a></td>
-          <td><a [routerLink]="['/items', category.short_name]">{{category.name}}</a></td>
         </tr>
     </table>
     
