@@ -7,19 +7,27 @@ import { Category } from "./Category";
 export class MenuDataService{
     private categories: Category[]=Array<Category>();
     private menuItems: MenuItem[]=Array<MenuItem>();
+    
     constructor(private dataSource: HttpDataSource){
-        this.dataSource.getAllCategories().subscribe(data => console.log(data));//this.categories=data);
+        this.dataSource.getAllCategories().subscribe(data => {
+            for(let i=0; i<data.length; i++){
+                let tmpData=data[i];
+                let newCategory=new Category(tmpData.id,
+                    tmpData.short_name, 
+                    tmpData.name, 
+                    tmpData.special_instructions, 
+                    tmpData.url);
+                this.categories.push(newCategory);
+            }
+        });
     }
 
     getAllCategories(): Category[]{
-        console.log(this.categories);
         return this.categories;
     }
-
+   
     getItemsByCategory(category: string){
-        this.dataSource.getItemsForCategory(category).subscribe(
-            data => this.menuItems=data.menu_items
-        );
+        return this.dataSource.getItemsForCategory(category); 
     }
 
     getMenuItems(){

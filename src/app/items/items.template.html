@@ -1,7 +1,17 @@
 <div>
-    <h1>This is the items page</h1>
+    <h1>This is the items page for category {{category}}</h1>
     <ul>
         <li><a routerLink="/">Home Page</a></li>
         <li> <a routerLink="/categories">Categories Page</a></li>
     </ul>    
 </div>
+<table>
+    <th>Item Name</th>
+    <th>Item Description</th>
+    <th>Price</th>
+    <tr *ngFor="let item of getItems()">
+      <td>{{item.name}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.price_large}}</td>
+    </tr>
+</table>
