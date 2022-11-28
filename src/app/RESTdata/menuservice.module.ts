@@ -1,19 +1,18 @@
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { HttpDataSource, URL, URL_CATEGORIES } from "./HTTPclient";
-import { MenuDataService } from "./menudata.service";
 
 
 @NgModule({
     imports: [HttpClientModule],
-    providers: [HttpDataSource, MenuDataService,
+    providers: [HttpDataSource,
         {
             provide: URL, 
-            useValue: "https://davids-restaurant.herokuapp.com/menu_items.json?category="
+            useValue: "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/"
         },
         {
             provide: URL_CATEGORIES, 
-            useValue: "https://davids-restaurant.herokuapp.com/categories.json"
+            useValue: "https://coursera-jhu-default-rtdb.firebaseio.com/categories.json"
         }
     ]
 

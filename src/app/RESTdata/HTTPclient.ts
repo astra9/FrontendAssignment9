@@ -1,7 +1,6 @@
-import { from, Observable } from "rxjs";
+import { Observable } from "rxjs";
 import { Injectable,Inject,InjectionToken } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Categories } from "./Categories";
 import { Category } from "./Category";
 import { MenuItems } from "./MenuItems";
 
@@ -19,6 +18,6 @@ export class HttpDataSource {
     }
 
     getItemsForCategory(categoryShortName: string):Observable<MenuItems>{
-        return this.http.get<MenuItems>(this.url+categoryShortName);
+        return this.http.get<MenuItems>(this.url+categoryShortName+'.json');
     }
 }
